@@ -28,11 +28,23 @@ class Minimax:
                         best_value = value
                         if depth == 0:
                             best_move = choice
+                    elif value == best_value:
+                        coin = random.choice([0,1])
+                        if coin == 1:
+                            best_value = value
+                            if depth == 0:
+                                best_move = choice
                 else:
                     if value < best_value:
                         best_value = value
                         if depth == 0:
                             best_move = choice
+                    elif value == best_value:
+                        coin = random.choice([0,1])
+                        if coin == 1:
+                            best_value = value
+                            if depth == 0:
+                                best_move = choice
             else:
                 board_copy = board_copy.get_reverse_board()
                 value = self.minimax(board_copy, -1*turn, depth+1)[0]
@@ -41,11 +53,23 @@ class Minimax:
                         best_value = value
                         if depth == 0:
                             best_move = choice
+                    elif value == best_value:
+                        coin = random.choice([0,1])
+                        if coin == 1:
+                            best_value = value
+                            if depth == 0:
+                                best_move = choice
                 else:
                     if value < best_value:
                         best_value = value
                         if depth == 0:
                             best_move = choice
+                    elif value == best_value:
+                        coin = random.choice([0,1])
+                        if coin == 1:
+                            best_value = value
+                            if depth == 0:
+                                best_move = choice
         return [best_value, best_move]    
 
     
@@ -72,6 +96,15 @@ class Minimax:
                         if best_value >= b:
                             return [best_value, best_move]
                         a = max(a, best_value)
+                    elif value == best_value:
+                        coin = random.choice([0,1])
+                        if coin == 1:
+                            best_value = value
+                            if depth == 0:
+                                best_move = choice
+                            if best_value >= b:
+                                return [best_value, best_move]
+                            a = max(a, best_value)
                 else:
                     if value < best_value:
                         best_value = value
@@ -80,6 +113,15 @@ class Minimax:
                         if best_value <= a:
                             return [best_value, best_move]
                         b = min(b, best_value)
+                    elif value == best_value:
+                        coin = random.choice([0,1])
+                        if coin == 1:
+                            best_value = value
+                            if depth == 0:
+                                best_move = choice
+                            if best_value <= a:
+                                return [best_value, best_move]
+                            b = min(b, best_value)
             else:
                 board_copy = board_copy.get_reverse_board()
                 value = self.minimax_alpha_beta(board_copy, -1*turn, depth+1, a, b)[0]
@@ -91,6 +133,15 @@ class Minimax:
                         if best_value >= b:
                             return [best_value, best_move]
                         a = max(a, best_value)
+                    elif value == best_value:
+                        coin = random.choice([0,1])
+                        if coin == 1:
+                            best_value = value
+                            if depth == 0:
+                                best_move = choice
+                            if best_value >= b:
+                                return [best_value, best_move]
+                            a = max(a, best_value)
                 else:
                     if value < best_value:
                         best_value = value
@@ -99,6 +150,15 @@ class Minimax:
                         if best_value <= a:
                             return [best_value, best_move]
                         b = min(b, best_value)
+                    elif value == best_value:
+                        coin = random.choice([0,1])
+                        if coin == 1:
+                            best_value = value
+                            if depth == 0:
+                                best_move = choice
+                            if best_value <= a:
+                                return [best_value, best_move]
+                            b = min(b, best_value)
         return [best_value, best_move]  
         
 
