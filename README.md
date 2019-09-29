@@ -16,10 +16,10 @@
 
 # The estimated time for the first move of a minimax player is around 30s, be patient, it will become faster and faster when the game goes.
 
-# please have fun with it!
+# Please have fun with it!
 
 # Contributers:
-#   1. name: Jiyun Xu
+#   1. Name: Jiyun Xu
 #      NetID: 31425711
-#   2. name: Yangyang Shao
+#   2. Name: Yangyang Shao
 #      NetID: 31434102
