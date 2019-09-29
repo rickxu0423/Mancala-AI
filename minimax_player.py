@@ -9,7 +9,7 @@ class Minimax:
         self.board = board
 
     def minimax(self, board, turn, depth):
-        if board.find_possible_moves():
+        if board.find_possible_moves(): #initialize best_move and deal with some exceptions
             best_move = random.choice(board.find_possible_moves())
         else: 
             best_move = 0
@@ -19,16 +19,16 @@ class Minimax:
             return [self.heuristic_function(board, -1), best_move]
         best_value = turn * -999
         for choice in board.find_possible_moves():  
-            board_copy = Board(board)
+            board_copy = Board(board)   #create a new Board instance
             to_move = board_copy.player_moves(choice)
-            if to_move:
+            if to_move: #if the player takes another turn
                 value = self.minimax(board_copy, turn, depth+1)[0]
                 if turn == 1:
                     if value > best_value:
                         best_value = value
-                        if depth == 0:
+                        if depth == 0:  #record the choice when depth == 0
                             best_move = choice
-                    elif value == best_value:
+                    elif value == best_value:   # flip a coin to handle equivalent moves
                         coin = random.choice([0,1])
                         if coin == 1:
                             best_value = value
@@ -45,7 +45,7 @@ class Minimax:
                             best_value = value
                             if depth == 0:
                                 best_move = choice
-            else:
+            else:   #if the player gives the turn to its opponent
                 board_copy = board_copy.get_reverse_board()
                 value = self.minimax(board_copy, -1*turn, depth+1)[0]
                 if turn == 1:
@@ -86,7 +86,7 @@ class Minimax:
         for choice in board.find_possible_moves():  
             board_copy = Board(board)
             to_move = board_copy.player_moves(choice)
-            if to_move:
+            if to_move: #if the player takes another turn
                 value = self.minimax_alpha_beta(board_copy, turn, depth+1, a, b)[0]
                 if turn == 1:
                     if value > best_value:
@@ -95,7 +95,7 @@ class Minimax:
                             best_move = choice
                         if best_value >= b:
                             return [best_value, best_move]
-                        a = max(a, best_value)
+                        a = max(a, best_value)  #alpha_beta pruning
                     elif value == best_value:
                         coin = random.choice([0,1])
                         if coin == 1:
@@ -112,7 +112,7 @@ class Minimax:
                             best_move = choice
                         if best_value <= a:
                             return [best_value, best_move]
-                        b = min(b, best_value)
+                        b = min(b, best_value)  #alpha_beta pruning
                     elif value == best_value:
                         coin = random.choice([0,1])
                         if coin == 1:
@@ -122,7 +122,7 @@ class Minimax:
                             if best_value <= a:
                                 return [best_value, best_move]
                             b = min(b, best_value)
-            else:
+            else:   ##if the player gives the turn to its opponent
                 board_copy = board_copy.get_reverse_board()
                 value = self.minimax_alpha_beta(board_copy, -1*turn, depth+1, a, b)[0]
                 if turn == 1:
@@ -162,7 +162,7 @@ class Minimax:
         return [best_value, best_move]  
         
 
-    def heuristic_function(self, board, turn):
+    def heuristic_function(self, board, turn):  #returns the value equals to the score of player1 minus the score of player2
         if turn == 1:
             score = board.board[6] - board.board[13]
         if turn == -1:
@@ -172,13 +172,13 @@ class Minimax:
     def choice(self):
         board_copy = Board(self.board)
         print("Calculating best move...")
-        t = time()
+        t = time()  #store the current time
 
         if self.name == "player1":
             value, choice = self.minimax(board_copy, 1, 0)
         else: 
             value, choice = self.minimax(board_copy, -1, 0)
-        print("Calculated in %.1fs" % (time() - t))
+        print("Calculated in %.1fs" % (time() - t)) #get the calculation time
         go_on = input("{}(minimax) move: {}".format(self.name, choice + 1))
         return choice
     

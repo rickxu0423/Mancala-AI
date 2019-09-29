@@ -2,7 +2,7 @@ from human_player import Human
 from random_player import Random
 from minimax_player import Minimax
 
-class Agent:
+class Agent:    #create player instance for both sides.
     def __init__(self, mode, name, board):
         self.mode = mode
         self.name = name
@@ -11,7 +11,7 @@ class Agent:
     def __str__(self, *args, **kwargs):    
         return str(self.mode)
         
-    def move(self):
+    def move(self): #returns the choice made by the specific agent
         if self.mode == "human":
             human = Human(self.name)
             choice = human.choice()
@@ -20,10 +20,8 @@ class Agent:
             choice = random.choice()
         if self.mode == "minimax":
             minimax = Minimax(self.name, self.board)
-            #minimax.board = self.board
             choice = minimax.choice()
         if self.mode == "minimax_alpha_beta":
             minimax = Minimax(self.name, self.board)
-            #minimax.board = self.board
             choice = minimax.choice_alpha_beta()
         return choice

@@ -2,7 +2,7 @@ class Human:
     def __init__(self, name):
         self.name = name
 
-    def choice(self):
+    def choice(self):   # create the input prompt and return choice made by human players
         command = ""
         while not command:
             command = input("{}(human) move: ".format(self.name)).split()
