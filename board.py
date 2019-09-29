@@ -8,16 +8,12 @@ class Board:
             self.board = board.board[:]
             self.reverse = board.reverse
             self.result = board.result
-            self.max_move_sequnce = board.max_move_sequnce
-            self.min_move_sequnce = board.min_move_sequnce
         else:
             self.board = [4,4,4,4,4,4,0,4,4,4,4,4,4,0] 
             #self.board = [1,1,1,1,1,1,0,1,1,1,1,1,1,0] 
             #self.board = [2,2,2,2,2,2,0,2,2,2,2,2,2,0]   
             self.reverse = False
             self.result = None
-            self.max_move_sequnce = []
-            self.min_move_sequnce = []
 
     def __str__(self, *args, **kwargs):        
         #return "str: this is only test"
