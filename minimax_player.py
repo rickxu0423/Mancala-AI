@@ -7,6 +7,7 @@ class Minimax:
     def __init__(self, name, board):
         self.name = name
         self.board = board
+        self.counter = 0
 
     def minimax(self, board, turn, depth):
         if board.find_possible_moves(): #initialize best_move and deal with some exceptions
@@ -19,6 +20,7 @@ class Minimax:
             return [self.heuristic_function(board, -1), best_move]
         best_value = turn * -999
         for choice in board.find_possible_moves():  
+            self.counter += 1
             board_copy = Board(board)   #create a new Board instance
             to_move = board_copy.player_moves(choice)
             if to_move: #if the player takes another turn
@@ -84,6 +86,7 @@ class Minimax:
             return [self.heuristic_function(board, -1), best_move]
         best_value = turn * -999
         for choice in board.find_possible_moves():  
+            self.counter += 1
             board_copy = Board(board)
             to_move = board_copy.player_moves(choice)
             if to_move: #if the player takes another turn
@@ -179,6 +182,7 @@ class Minimax:
         else: 
             value, choice = self.minimax(board_copy, -1, 0)
         print("Calculated in %.1fs" % (time() - t)) #get the calculation time
+        print(self.counter, "states explored")
         go_on = input("{}(minimax) move: {}".format(self.name, choice + 1))
         return choice
     
@@ -193,5 +197,6 @@ class Minimax:
         else: 
             value, choice = self.minimax_alpha_beta(board_copy, -1, 0, -999, 999)
         print("Calculated in %.1fs" % (time() - t))
+        print(self.counter, "states explored")
         go_on = input("{}(minimax_alpha_beta) move: {}".format(self.name, choice + 1))
         return choice
