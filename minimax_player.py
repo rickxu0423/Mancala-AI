@@ -80,9 +80,9 @@ class Minimax:
             best_move = random.choice(board.find_possible_moves())
         else: 
             best_move = 0
-        if board.terminate() and turn == 1 or depth == 9 and turn == 1:
+        if board.terminate() and turn == 1 or depth == 13 and turn == 1:
             return [self.heuristic_function(board, 1), best_move]
-        elif board.terminate() and turn == -1 or depth == 9 and turn == -1:
+        elif board.terminate() and turn == -1 or depth == 13 and turn == -1:
             return [self.heuristic_function(board, -1), best_move]
         best_value = turn * -999
         for choice in board.find_possible_moves():  

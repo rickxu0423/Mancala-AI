@@ -2,7 +2,7 @@
 
 Use command: **python3 play.py** to run the game.
 
-The first prompt asks you to put into the mode for **player1** which will go first and the second prompt asks you to put into the mode for **player2** which will go after player 1.
+The first prompt asks you to type into the mode for **player1** which will go first and the second prompt asks you to type into the mode for **player2** which will go after player 1.
 
 ## Game contains 4 types of player-mode:
     1. human
