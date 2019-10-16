@@ -1,5 +1,4 @@
 
-
 ''' 
 board represent the game state which is initially set to [4,4,4,4,4,4,0,4,4,4,4,4,4,0]. 
 You can pass any state into class Board(board) to generate a new instance.

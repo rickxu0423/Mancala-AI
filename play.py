@@ -30,8 +30,45 @@ def Player2_move(board, agent):
     return board.get_reverse_board()
 
 def Run_game():
-    player1 = input('Select Player1 (human/random/minimax/minimax_alpha_beta): ')
-    player2 = input('Select Player2 (human/random/minimax/minimax_alpha_beta): ')
+    print("1. human")
+    print("2. random")
+    print("3. minimax")
+    print("4. minimax_alpha_beta")
+    while 1:
+        num1 = input('Select Player1 (1 to 4): ')
+        if int(num1) == 1:
+            player1 = "human"
+            break
+        elif int(num1) == 2:
+            player1 = "random"
+            break
+        elif int(num1) == 3:
+            player1 = "minimax"
+            break
+        elif int(num1) == 4:
+            player1 = "minimax_alpha_beta"
+            break
+        else:
+            print('Please input a number between 1 and 4!')
+
+    while 1:
+        num2 = input('Select Player2 (1 to 4): ')
+        if int(num2) == 1:
+            player1 = "human"
+            break
+        elif int(num2) == 2:
+            player2 = "random"
+            break
+        elif int(num2) == 3:
+            player2 = "minimax"
+            break
+        elif int(num2) == 4:
+            player2 = "minimax_alpha_beta"
+            break
+        else:
+            print('Please input a number between 1 and 4!')
+    
+
     board = Board()
     board.print()
     while 1:
