@@ -22,6 +22,9 @@ Briefly, this variant of Mancala is a two-player board agame where each player h
     **terminate()** detects if game ends or not which will return true when there is no stones on either side of the board or either player gets more than 24 stones and print the result</br>
     **print()** is used to visualize the game board in order to have a better user experience
     </br>
+    __Board Representation:__
+    ![Board Representation](/images/board-represenation.png)
+    </br>
 >>**agent.py**: 
     Describes the class Agent() to create player instance for both sides</br>
     **move()** returns the choice made by the specific agent as user selected before the game started which can be human, random, minimax or minimax_alpha_beta</br>
@@ -41,8 +44,8 @@ Briefly, this variant of Mancala is a two-player board agame where each player h
 ### How to Run the Game
 
 Use command: **python3 play.py** to run the game.</br>
-The first prompt asks you to type the mode for **player1** which will go first.</br> 
-The second prompt asks you to type the mode for **player2** which will go after player 1.</br>
+The first prompt asks you to select the mode for **player1** which will go first.</br> 
+The second prompt asks you to selct the mode for **player2** which will go after player 1.</br>
 
 #### Game contains 4 types of player-mode:
     1. human
@@ -55,3 +58,11 @@ Although the algorithm is limited by its search depth to **9**, it is pretty har
 The estimated time for the first move of a minimax player is around **30s**, be patient, it will become faster and faster when the game goes.
 
 **Please have fun with it!**
+
+#### Performance Measurement:
+__Skill of minimax/minimax alpha-beta__
+![Performance Measurement](/images/performance.png)
+
+#### Performance Measurement:
+__Computational effectiveness of alpha-beta pruning__
+![Efficiency Measurement](/images/efficiency.png)
