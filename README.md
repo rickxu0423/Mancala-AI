@@ -12,6 +12,10 @@ Brief Introduction:
 Mancala is an ancient board game with many variants. This project is focusing on the popular (in the U.S) Kalah version.</br>
 Briefly, this variant of Mancala is a two-player board agame where each player has a row of M pits where each pit is initially filled with K stones. For this project, we will use the standard setup of six pits each initally contining four stones. To each player's right on the board is a store. The objective for each player is to accumulate as many stones as possible into their own store.</br>
 
+__Board Representation:__
+![Board Representation](/images/board-represenation.png)
+</br>
+
 ### Project Design
 >>**board.py**:</br>
     Describes the class Board() to create Mancala game instances when you start a new game or apply minimax algorithm. Inside the class:</br>
@@ -21,9 +25,6 @@ Briefly, this variant of Mancala is a two-player board agame where each player h
     **player_moves(action)** pass and apply the action to the instance and return a boolean indicates whether the player gets another turn or not</br>
     **terminate()** detects if game ends or not which will return true when there is no stones on either side of the board or either player gets more than 24 stones and print the result</br>
     **print()** is used to visualize the game board in order to have a better user experience
-    </br>
-    __Board Representation:__
-    ![Board Representation](/images/board-represenation.png)
     </br>
 >>**agent.py**: 
     Describes the class Agent() to create player instance for both sides</br>
