@@ -13,7 +13,7 @@ Mancala is an ancient board game with many variants. This project is focusing on
 Briefly, this variant of Mancala is a two-player board agame where each player has a row of M pits where each pit is initially filled with K stones. For this project, we will use the standard setup of six pits each initally contining four stones. To each player's right on the board is a store. The objective for each player is to accumulate as many stones as possible into their own store.</br>
 
 __Board Representation:__
-![Board Representation](/images/board-representation.png)
+![Board Representation](/images/board.png)
 </br>
 
 ### Project Design
